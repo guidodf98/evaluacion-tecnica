@@ -39,7 +39,7 @@ function Galeria() {
               <Card curso={curso} key={curso.id} />
             ))
           ) : (
-            <p>No hay cursos disponibles.</p>
+            <p>No hay cursos disponibles</p>
           )}
         </div>
       </div>

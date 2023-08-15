@@ -13,7 +13,7 @@ function Galeria({ curso }) {
             <p className="card-text">{curso.descripcion}</p>
           </div>
           <div className="d-flex justify-content-end align-items-center mt-3">
-            <span className="badge text-bg-primary">{curso.categoria_id}</span>
+            <span className="badge text-bg-primary">{curso.categoria.nombre}</span>
           </div>
         </div>
       </div>

@@ -10,4 +10,9 @@ class Curso extends Model
     use HasFactory;
 
     protected $filleable = ['nombre', 'descripcion', 'categoria_id'];
+
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class);
+    }
 }
