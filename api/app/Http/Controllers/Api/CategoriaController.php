@@ -3,47 +3,69 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+  /**
+   * Devuelve todos los registros de Categoria
+   *
+   * @param \Illuminate\Http\Request $request
+   */
+  public function index()
+  {
+    $products = Categoria::all();
+    return $products;
+  }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+  /**
+   * Almacena una nueva Categoria
+   *
+   * @param \Illuminate\Http\Request $request
+   */
+  public function store(Request $request)
+  {
+    $product = new Categoria();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+    $product->nombre = $request->nombre;
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    $product->save();
+  }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+  /**
+   * Devuelve el registro de una Categoria segun su ID
+   *
+   * @param int $id
+   */
+  public function show($id)
+  {
+    $product = Categoria::find($id);
+    return $product;
+  }
+
+  /**
+   * Edita los valores de una Categoria en especifico
+   *
+   * @param \Illuminate\Http\Request $request
+   */
+  public function update(Request $request)
+  {
+    $product = Categoria::findOrFail($request->id);
+
+    $product->nombre = $request->nombre;
+
+    $product->save();
+    return $product;
+  }
+
+  /**
+   * Elimina una Categoria en especifico
+   *
+   * @param string $id
+   */
+  public function destroy(string $id)
+  {
+    Categoria::destroy($id);
+  }
 }
