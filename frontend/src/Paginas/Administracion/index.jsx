@@ -1,33 +1,32 @@
 import { useState } from 'react'
 
-import Layout from './components/Layout'
+import Layout from '../../components/Layout'
 
 function Administracion() {
 
   return (
     <Layout>
-      <section className="py-8">
+      <section className="py-5">
         <div className="container">
           <div className="bg-white rounded shadow">
-            <div className="px-6 pt-6 border-bottom border-secondary-light">
-              <div className="d-flex mb-6 align-items-center justify-content-between">
+            <div className="px-5 pt-5 border-bottom border-secondary-light">
+              <div className="d-flex mb-5 align-items-center justify-content-between">
                 <h4 className="mb-0">Recent Transactions</h4>
-                <a className="btn btn-sm btn-primary d-inline-flex align-items-center" href="#">
-                  <span className="text-primary-light me-2">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M13 8.33337C12.6 8.33337 12.3333 8.60004 12.3333 9.00004V11.6667C12.3333 12.0667 12.0666 12.3334 11.6666 12.3334H2.33331C1.93331 12.3334 1.66665 12.0667 1.66665 11.6667V9.00004C1.66665 8.60004 1.39998 8.33337 0.99998 8.33337C0.59998 8.33337 0.333313 8.60004 0.333313 9.00004V11.6667C0.333313 12.8 1.19998 13.6667 2.33331 13.6667H11.6666C12.8 13.6667 13.6666 12.8 13.6666 11.6667V9.00004C13.6666 8.60004 13.4 8.33337 13 8.33337ZM4.79998 4.13337L6.33331 2.60004V9.00004C6.33331 9.40004 6.59998 9.66671 6.99998 9.66671C7.39998 9.66671 7.66665 9.40004 7.66665 9.00004V2.60004L9.19998 4.13337C9.46665 4.40004 9.86665 4.40004 10.1333 4.13337C10.4 3.86671 10.4 3.46671 10.1333 3.20004L7.46665 0.533374C7.19998 0.266707 6.79998 0.266707 6.53331 0.533374L3.86665 3.20004C3.59998 3.46671 3.59998 3.86671 3.86665 4.13337C4.13331 4.40004 4.53331 4.40004 4.79998 4.13337Z" fill="currentColor"></path>
-                    </svg>
-                  </span>
-                  <span>Export</span>
+              </div>
+              <div>
+                <a className="link-primary small px-3 pb-2 text-decoration-none border-bottom border-2 border-primary" href="#">
+                  Incoming
+                </a>
+                <a className="link-primary small px-3 pb-2 text-decoration-none d-inline-block text-secondary" href="#">
+                  Invoices
                 </a>
               </div>
-              <div><a className="link-primary small px-3 pb-2 text-decoration-none border-bottom border-2 border-primary" href="#">Incoming</a><a className="link-primary small px-3 pb-2 text-decoration-none d-inline-block text-secondary" href="#">Invoices</a></div>
             </div>
             <div className="pt-4 table-responsive">
               <table className="table mb-0 table-borderless table-striped small">
                 <thead>
                   <tr>
-                    <th className="py-4 px-6">
+                    <th className="py-4 px-5">
                       <div className="form-check mb-0 d-flex align-items-center">
                         <input className="form-check-input me-3" type="checkbox" name="" />
                         <a className="btn text-secondary p-0 d-inline-flex align-items-center">
@@ -40,7 +39,7 @@ function Administracion() {
                         </a>
                       </div>
                     </th>
-                    <th className="py-4 px-6">
+                    <th className="py-4 px-5">
                       <a className="btn text-secondary p-0 d-inline-flex align-items-center" href="#">
                         <span className="me-2">Date</span>
                         <span>
@@ -50,7 +49,7 @@ function Administracion() {
                         </span>
                       </a>
                     </th>
-                    <th className="py-4 px-6">
+                    <th className="py-4 px-5">
                       <a className="btn text-secondary p-0 d-inline-flex align-items-center" href="#">
                         <span className="me-2">Description</span>
                         <span>
@@ -60,7 +59,7 @@ function Administracion() {
                         </span>
                       </a>
                     </th>
-                    <th className="py-4 px-6">
+                    <th className="py-4 px-5">
                       <a className="btn text-secondary p-0 d-inline-flex align-items-center" href="#">
                         <span className="me-2">Status</span>
                         <span>
@@ -70,7 +69,7 @@ function Administracion() {
                         </span>
                       </a>
                     </th>
-                    <th className="py-4 px-6">
+                    <th className="py-4 px-5">
                       <a className="btn text-secondary p-0 d-inline-flex align-items-center" href="#">
                         <span className="me-2">Descriptions</span>
                         <span>
@@ -84,74 +83,74 @@ function Administracion() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="py-5 px-6">
+                    <td className="py-5 px-5">
                       <div className="form-check">
                         <input className="form-check-input me-3 mb-0" type="checkbox" name="" />
                         <span>M063592DR2</span>
                       </div>
                     </td>
-                    <td className="py-5 px-6">08.04.2021</td>
-                    <td className="py-5 px-6">Code 5928MD01</td>
-                    <td className="py-5 px-6">
+                    <td className="py-5 px-5">08.04.2021</td>
+                    <td className="py-5 px-5">Code 5928MD01</td>
+                    <td className="py-5 px-5">
                       <span className="badge bg-success">Completed</span>
                     </td>
-                    <td className="py-5 px-6">$2500.00</td>
+                    <td className="py-5 px-5">$2500.00</td>
                   </tr>
                   <tr>
-                    <td className="py-5 px-6">
+                    <td className="py-5 px-5">
                       <div className="form-check">
                         <input className="form-check-input me-3 mb-0" type="checkbox" name="" />
                         <span className="d-inline-block">M063592DR2</span>
                       </div>
                     </td>
-                    <td className="py-5 px-6">08.04.2021</td>
-                    <td className="py-5 px-6">Code 5928MD01</td>
-                    <td className="py-5 px-6">
+                    <td className="py-5 px-5">08.04.2021</td>
+                    <td className="py-5 px-5">Code 5928MD01</td>
+                    <td className="py-5 px-5">
                       <span className="badge bg-success">Completed</span>
                     </td>
-                    <td className="py-5 px-6">$2500.00</td>
+                    <td className="py-5 px-5">$2500.00</td>
                   </tr>
                   <tr>
-                    <td className="py-5 px-6">
+                    <td className="py-5 px-5">
                       <div className="form-check">
                         <input className="form-check-input me-3 mb-0" type="checkbox" name="" />
                         <span className="d-inline-block">M063592DR2</span>
                       </div>
                     </td>
-                    <td className="py-5 px-6">08.04.2021</td>
-                    <td className="py-5 px-6">Code 5928MD01</td>
-                    <td className="py-5 px-6">
+                    <td className="py-5 px-5">08.04.2021</td>
+                    <td className="py-5 px-5">Code 5928MD01</td>
+                    <td className="py-5 px-5">
                       <span className="badge bg-success">Completed</span>
                     </td>
-                    <td className="py-5 px-6">$2500.00</td>
+                    <td className="py-5 px-5">$2500.00</td>
                   </tr>
                   <tr>
-                    <td className="py-5 px-6">
+                    <td className="py-5 px-5">
                       <div className="form-check">
                         <input className="form-check-input me-3 mb-0" type="checkbox" name="" />
                         <span className="d-inline-block">M063592DR2</span>
                       </div>
                     </td>
-                    <td className="py-5 px-6">08.04.2021</td>
-                    <td className="py-5 px-6">Code 5928MD01</td>
-                    <td className="py-5 px-6">
+                    <td className="py-5 px-5">08.04.2021</td>
+                    <td className="py-5 px-5">Code 5928MD01</td>
+                    <td className="py-5 px-5">
                       <span className="badge bg-success">Completed</span>
                     </td>
-                    <td className="py-5 px-6">$2500.00</td>
+                    <td className="py-5 px-5">$2500.00</td>
                   </tr>
                   <tr>
-                    <td className="py-5 px-6">
+                    <td className="py-5 px-5">
                       <div className="form-check">
                         <input className="form-check-input me-3 mb-0" type="checkbox" name="" />
                         <span className="d-inline-block">M063592DR2</span>
                       </div>
                     </td>
-                    <td className="py-5 px-6">08.04.2021</td>
-                    <td className="py-5 px-6">Code 5928MD01</td>
-                    <td className="py-5 px-6">
+                    <td className="py-5 px-5">08.04.2021</td>
+                    <td className="py-5 px-5">Code 5928MD01</td>
+                    <td className="py-5 px-5">
                       <span className="badge bg-success">Completed</span>
                     </td>
-                    <td className="py-5 px-6">$2500.00</td>
+                    <td className="py-5 px-5">$2500.00</td>
                   </tr>
                 </tbody>
               </table>
