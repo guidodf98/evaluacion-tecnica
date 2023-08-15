@@ -15,8 +15,8 @@ class CursoController extends Controller
    */
   public function index()
   {
-    $products = Curso::all();
-    return $products;
+    $cursos = Curso::all();
+    return $cursos;
   }
 
   /**
@@ -26,13 +26,13 @@ class CursoController extends Controller
    */
   public function store(Request $request)
   {
-    $product = new Curso();
+    $curso = new Curso();
 
-    $product->nombre = $request->nombre;
-    $product->descripcion = $request->descripcion;
-    $product->categoria_id = $request->categoria_id;
+    $curso->nombre = $request->nombre;
+    $curso->descripcion = $request->descripcion;
+    $curso->categoria_id = $request->categoria_id;
 
-    $product->save();
+    $curso->save();
   }
 
   /**
@@ -42,8 +42,8 @@ class CursoController extends Controller
    */
   public function show($id)
   {
-    $product = Curso::find($id);
-    return $product;
+    $curso = Curso::find($id);
+    return $curso;
   }
 
   /**
@@ -53,14 +53,14 @@ class CursoController extends Controller
    */
   public function update(Request $request)
   {
-    $product = Curso::findOrFail($request->id);
+    $curso = Curso::findOrFail($request->id);
 
-    $product->nombre = $request->nombre;
-    $product->descripcion = $request->descripcion;
-    $product->categoria_id = $request->categoria_id;
+    $curso->nombre = $request->nombre;
+    $curso->descripcion = $request->descripcion;
+    $curso->categoria_id = $request->categoria_id;
 
-    $product->save();
-    return $product;
+    $curso->save();
+    return $curso;
   }
 
   /**

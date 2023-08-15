@@ -15,8 +15,8 @@ class PersonaController extends Controller
      */
     public function index()
     {
-        $products = Persona::all();
-        return $products;
+        $personas = Persona::all();
+        return $personas;
     }
 
     /**
@@ -26,15 +26,15 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Persona();
+        $persona = new Persona();
 
-        $product->nombre = $request->nombre;
-        $product->apellido = $request->apellido;
-        $product->genero = $request->genero;
-        $product->edad = $request->edad;
-        $product->dni = $request->dni;
+        $persona->nombre = $request->nombre;
+        $persona->apellido = $request->apellido;
+        $persona->genero = $request->genero;
+        $persona->edad = $request->edad;
+        $persona->dni = $request->dni;
 
-        $product->save();
+        $persona->save();
     }
 
     /**
@@ -44,8 +44,8 @@ class PersonaController extends Controller
      */
     public function show($id)
     {
-        $product = Persona::find($id);
-        return $product;
+        $persona = Persona::find($id);
+        return $persona;
     }
 
     /**
@@ -55,16 +55,16 @@ class PersonaController extends Controller
      */
     public function update(Request $request)
     {
-        $product = Persona::findOrFail($request->id);
+        $persona = Persona::findOrFail($request->id);
 
-        $product->nombre = $request->nombre;
-        $product->apellido = $request->apellido;
-        $product->genero = $request->genero;
-        $product->edad = $request->edad;
-        $product->dni = $request->dni;
+        $persona->nombre = $request->nombre;
+        $persona->apellido = $request->apellido;
+        $persona->genero = $request->genero;
+        $persona->edad = $request->edad;
+        $persona->dni = $request->dni;
 
-        $product->save();
-        return $product;
+        $persona->save();
+        return $persona;
     }
 
     /**

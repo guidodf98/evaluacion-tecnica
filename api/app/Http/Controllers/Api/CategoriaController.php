@@ -15,8 +15,8 @@ class CategoriaController extends Controller
    */
   public function index()
   {
-    $products = Categoria::all();
-    return $products;
+    $categorias = Categoria::all();
+    return $categorias;
   }
 
   /**
@@ -26,11 +26,11 @@ class CategoriaController extends Controller
    */
   public function store(Request $request)
   {
-    $product = new Categoria();
+    $categoria = new Categoria();
 
-    $product->nombre = $request->nombre;
+    $categoria->nombre = $request->nombre;
 
-    $product->save();
+    $categoria->save();
   }
 
   /**
@@ -40,8 +40,8 @@ class CategoriaController extends Controller
    */
   public function show($id)
   {
-    $product = Categoria::find($id);
-    return $product;
+    $categoria = Categoria::find($id);
+    return $categoria;
   }
 
   /**
@@ -51,12 +51,12 @@ class CategoriaController extends Controller
    */
   public function update(Request $request)
   {
-    $product = Categoria::findOrFail($request->id);
+    $categoria = Categoria::findOrFail($request->id);
 
-    $product->nombre = $request->nombre;
+    $categoria->nombre = $request->nombre;
 
-    $product->save();
-    return $product;
+    $categoria->save();
+    return $categoria;
   }
 
   /**
