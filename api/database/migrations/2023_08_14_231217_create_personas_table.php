@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('apellido');
             $table->enum('genero', ['masculino', 'femenino', 'otro']);
             $table->unsignedTinyInteger('edad');
-            $table->integer('dni', 8)->unique();
+            $table->integer('dni')->unique();
             $table->timestamps();
         });
     }
