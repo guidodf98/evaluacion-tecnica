@@ -1,10 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 
-import Home from './Home'
-import Administracion from './Administracion'
-import NotFound from './NotFound'
+import Home from './Paginas/Home/index'
+import Administracion from './Paginas/Administracion/index'
+import NotFound from './Paginas/Errores/NotFound'
 
-import './App.css'
 function App() {
 
   return (

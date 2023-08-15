@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-import Card from '../components/Card'
-import Layout from './Layout'
+import Card from './Card'
 
 function Galeria() {
   const endpoint = 'http://localhost:8000/api'
