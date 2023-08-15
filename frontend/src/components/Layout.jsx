@@ -1,23 +1,21 @@
 import React from 'react'
+
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import Hero from '../components/Hero'
 
 function Layout({ children }) {
   return (
-    <div>
+    <div className='d-flex flex-column justify-content-between'>
 
       <header>
         <Navbar />
-        <Hero />
       </header>
 
-      <main>
+      <main style={{ minHeight: 'calc(100vh - 209px)' }}>
         {children}
       </main>
 
       <Footer />
-
     </div>
   );
 }
