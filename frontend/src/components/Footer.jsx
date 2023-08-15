@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 function Footer() {
   return (
-    <footer class="text-body-secondary py-5">
-    <div class="container">
+    <footer className="text-body-secondary py-5">
+    <div className="container">
       <p>Footer</p>
     </div>
   </footer>
