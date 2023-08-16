@@ -4,9 +4,9 @@ import Th from '../../components/Tablas/Th'
 import Td from '../../components/Tablas/Td'
 import ModalCategoria from '../../components/Modales/Categoria'
 
-const Categorias = () => {
-  const endpoint = 'http://localhost:8000/api'
+const endpoint = 'http://localhost:8000/api'
 
+const Categorias = () => {
   const [categorias, setCategorias] = useState([])
 
   useEffect(() => {

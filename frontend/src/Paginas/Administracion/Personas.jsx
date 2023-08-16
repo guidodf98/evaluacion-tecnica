@@ -3,9 +3,9 @@ import axios from 'axios'
 import Th from '../../components/Tablas/Th'
 import Td from '../../components/Tablas/Td'
 
-const Persona = () => {
-  const endpoint = 'http://localhost:8000/api'
+const endpoint = 'http://localhost:8000/api'
 
+const Persona = () => {
   const [personas, setPersona] = useState([])
 
   useEffect(() => {
