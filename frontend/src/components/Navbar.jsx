@@ -1,7 +1,7 @@
 import React from 'react';
-import {  Outlet, Link } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
-function Navbar() {
+const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-dark border-bottom border-body py-3" data-bs-theme="dark">
       <div className="container">
@@ -24,4 +24,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Navbar

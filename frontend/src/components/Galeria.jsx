@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import Card from './Card'
 
-function Galeria() {
+const Galeria = () => {
   const endpoint = 'http://localhost:8000/api'
 
   const [cursos, setCursos] = useState([])
@@ -22,27 +22,21 @@ function Galeria() {
       });
   }
 
-  // const deleteCurso = async (id) => {
-  //   await axios.delete(`${endpoint}/curso/${id}`)
-  //   getAllCursos()
-  // }
-
-
   return (
-      <div className="album py-5 bg-body-tertiary">
-        <div className="container">
-          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 g-md-3 g-xl-4">
-            {cursos && cursos.length > 0 ? (
-              cursos.map((curso) => (
-                <Card curso={curso} key={curso.id} />
-              ))
-            ) : (
-              <p>No hay cursos disponibles</p>
-            )}
-          </div>
+    <div className="album py-5 bg-body-tertiary">
+      <div className="container">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 g-md-3 g-xl-4">
+          {cursos && cursos.length > 0 ? (
+            cursos.map((curso) => (
+              <Card curso={curso} key={curso.id} />
+            ))
+          ) : (
+            <p>No hay cursos disponibles</p>
+          )}
         </div>
       </div>
+    </div>
   );
 }
 
-export default Galeria;
+export default Galeria

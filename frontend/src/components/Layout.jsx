@@ -3,7 +3,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 
-function Layout({ children }) {
+const Layout = () => {
   return (
     <div className='d-flex flex-column justify-content-between'>
 
@@ -20,4 +20,4 @@ function Layout({ children }) {
   );
 }
 
-export default Layout;
+export default Layout

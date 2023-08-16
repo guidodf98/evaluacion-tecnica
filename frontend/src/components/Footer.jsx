@@ -1,13 +1,13 @@
 import React from 'react'
 
-function Footer() {
+const Footer = () => {
   return (
     <footer className="text-body-secondary py-5">
-    <div className="container">
-      <p>Footer</p>
-    </div>
-  </footer>
+      <div className="container">
+        <p>Footer</p>
+      </div>
+    </footer>
   );
 }
 
-export default Footer;
+export default Footer

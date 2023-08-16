@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Galeria({ curso }) {
+const Card = ({ curso }) => {
   return (
     <div className="col">
       <div className="card shadow-sm h-100">
@@ -21,4 +21,4 @@ function Galeria({ curso }) {
   );
 }
 
-export default Galeria;
+export default Card;

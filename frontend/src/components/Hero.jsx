@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Hero() {
+const Hero = () => {
   return (
     <section className="py-5 text-center container">
       <p>Carrusel</p>
@@ -8,4 +8,4 @@ function Hero() {
   );
 }
 
-export default Hero;
+export default Hero

@@ -4,18 +4,18 @@ import Home from './Paginas/Home/index'
 import Administracion from './Paginas/Administracion/index'
 import NotFound from './Paginas/Errores/NotFound'
 
-function App() {
+const App = () => {
 
   return (
     <>
-    <Routes>
-      <Route path="/">
-        <Route index element={<Home />} />
-        <Route path="/administracion" element={<Administracion />} />
-        {/* <Route path="dashboard" element={<Dashboard />} /> */}
-        <Route path="*" element={<NotFound />} />
-      </Route>
-    </Routes>
+      <Routes>
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="/administracion" element={<Administracion />} />
+          {/* <Route path="dashboard" element={<Dashboard />} /> */}
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </>
   )
 }
