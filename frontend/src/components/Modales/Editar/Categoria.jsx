@@ -1,42 +1,49 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const endpoint = 'http://localhost:8000/api/categoria'
 
-const ModalCategoria = ({getAllCategorias}) => {
-
+const ModalEditCategoria = ({ getAllCategorias, id }) => {
   const [nombre, setNombre] = useState('')
 
-  const store = async (e) => {
+  const update = async (e) => {
     e.preventDefault()
-    
-    await axios.post(endpoint, {
+
+    await axios.put(`${endpoint}/${id}`, {
       nombre: nombre
     })
 
-    document.getElementById('boton-cierre').click()
+    document.getElementById('boton-cierre-edit').click()
     getAllCategorias()
     resetAll()
   }
-  
+
+  useEffect(() => {
+    if (id !== null) {
+      const getCategoriaById = async () => {
+        const response = await axios.get(`${endpoint}/${id}`);
+        setNombre(response.data.nombre);
+      };
+
+      getCategoriaById();
+    }
+  }, [id]);
+
+
   const resetAll = () => {
     setNombre('')
   }
 
   return (
     <>
-      <button type="button" className="btn btn-success align-self-center" data-bs-toggle="modal" data-bs-target="#modalCategoria">
-        Agregar categoria
-      </button>
-
-      <div className="modal fade" id="modalCategoria" tabIndex="-1" aria-labelledby="modalCategoriaLabel" aria-hidden="true">
+      <div className="modal fade" id="modalEditCategoria" tabIndex="-1" aria-labelledby="modalEditCategoriaLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="modalCategoriaLabel">Nueva Categoria</h1>
-              <button id='boton-cierre' type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              <h1 className="modal-title fs-5" id="modalEditCategoriaLabel">Editar Categoria</h1>
+              <button id='boton-cierre-edit' type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
-            <form onSubmit={store}>
+            <form onSubmit={update}>
               <div className="modal-body">
                 <div className="mb-3">
                   <label htmlFor="nombre" className="form-label">Nombre</label>
@@ -54,4 +61,4 @@ const ModalCategoria = ({getAllCategorias}) => {
   );
 }
 
-export default ModalCategoria
+export default ModalEditCategoria

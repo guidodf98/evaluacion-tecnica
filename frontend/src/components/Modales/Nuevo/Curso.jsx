@@ -67,7 +67,7 @@ const ModalCurso = ({ getAllCursos }) => {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="descripcion" className="form-label">Descripcion</label>
-                  <input value={descripcion} onChange={(e) => setDescripcion(e.target.value)} type="text" className="form-control" id="descripcion" />
+                  <textarea value={descripcion} onChange={(e) => setDescripcion(e.target.value)} className="form-control" id="descripcion" />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="categoria_id" className="form-label">Categoria</label>

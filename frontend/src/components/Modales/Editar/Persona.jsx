@@ -1,9 +1,9 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const endpoint = 'http://localhost:8000/api/persona'
 
-const ModalEditPersona = ({ getAllPersonas }) => {
+const ModalEditPersona = ({ getAllPersonas, id }) => {
 
   const [nombre, setNombre] = useState('')
   const [apellido, setApellido] = useState('')
@@ -11,10 +11,10 @@ const ModalEditPersona = ({ getAllPersonas }) => {
   const [edad, setEdad] = useState(0)
   const [dni, setDni] = useState(0)
 
-  const store = async (e) => {
+  const update = async (e) => {
     e.preventDefault()
 
-    await axios.post(endpoint, {
+    await axios.put(`${endpoint}/${id}`, {
       nombre: nombre,
       apellido: apellido,
       genero: genero,
@@ -22,10 +22,26 @@ const ModalEditPersona = ({ getAllPersonas }) => {
       dni: dni
     })
 
-    document.getElementById('boton-cierre').click()
+    document.getElementById('boton-cierre-edit').click()
     getAllPersonas()
     resetAll()
   }
+
+  useEffect(() => {
+    if (id !== null) {
+      const getPersonaById = async () => {
+        const response = await axios.get(`${endpoint}/${id}`);
+        setNombre(response.data.nombre);
+        setApellido(response.data.apellido);
+        setGenero(response.data.genero);
+        setEdad(response.data.edad);
+        setDni(response.data.dni);
+      };
+
+      getPersonaById();
+    }
+  }, [id]);
+
 
   const resetAll = () => {
     setNombre('')
@@ -37,18 +53,14 @@ const ModalEditPersona = ({ getAllPersonas }) => {
 
   return (
     <>
-      <button type="button" className="btn btn-success align-self-center" data-bs-toggle="modal" data-bs-target="#modalPersona">
-        Agregar persona
-      </button>
-
-      <div className="modal fade" id="modalPersona" tabIndex="-1" aria-labelledby="modalPersonaLabel" aria-hidden="true">
+      <div className="modal fade" id="modalEditPersona" tabIndex="-1" aria-labelledby="modalEditPersonaLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="modalPersonaLabel">Nueva Persona</h1>
-              <button id='boton-cierre' type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              <h1 className="modal-title fs-5" id="modalEditPersonaLabel">Editar Persona</h1>
+              <button id='boton-cierre-edit' type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
-            <form onSubmit={store}>
+            <form onSubmit={update}>
               <div className="modal-body">
                 <div className="mb-3">
                   <label htmlFor="nombre" className="form-label">Nombre</label>
