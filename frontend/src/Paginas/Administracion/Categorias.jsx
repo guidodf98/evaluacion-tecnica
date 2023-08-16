@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Th from '../../components/Tablas/Th'
 import Td from '../../components/Tablas/Td'
-import ModalCategoria from '../../components/Modales/Categoria'
+import ModalCategoria from '../../components/Modales/Nuevo/Categoria'
 
 const endpoint = 'http://localhost:8000/api'
 
