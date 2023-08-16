@@ -12,6 +12,10 @@ const ModalCurso = ({ getAllCursos }) => {
   const [descripcion, setDescripcion] = useState('')
   const [categoria_id, setCategoria] = useState(1)
 
+  useEffect(() => {
+    getCategorias()
+  }, [])
+
   const store = async (e) => {
     e.preventDefault()
 
@@ -25,11 +29,6 @@ const ModalCurso = ({ getAllCursos }) => {
     getAllCursos()
     resetAll()
   }
-
-  useEffect(() => {
-    getCategorias()
-  }, [])
-
 
   const getCategorias = async () => {
     await axios.get(endpointCategorias)
@@ -72,7 +71,7 @@ const ModalCurso = ({ getAllCursos }) => {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="categoria_id" className="form-label">Categoria</label>
-                  <select value={categoria_id} onChange={(e) => setCategoria(e.target.value)} className="form-select" aria-label="Default select example" id="categoria_id" defaultValue={1}>
+                  <select value={categoria_id} onChange={(e) => setCategoria(e.target.value)} className="form-select" aria-label="Default select example" id="categoria_id">
                     {categorias.map((categoria) => (
                       <option value={categoria.id} key={categoria.id}>{categoria.nombre}</option>
                     ))}

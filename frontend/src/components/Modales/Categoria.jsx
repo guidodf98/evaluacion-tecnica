@@ -16,6 +16,11 @@ const ModalCategoria = ({getAllCategorias}) => {
 
     document.getElementById('boton-cierre').click()
     getAllCategorias()
+    resetAll()
+  }
+  
+  const resetAll = () => {
+    setNombre('')
   }
 
   return (
