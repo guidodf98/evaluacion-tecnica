@@ -3,8 +3,9 @@ import axios from 'axios'
 
 import Card from './Card'
 
+const endpoint = 'http://localhost:8000/api'
+
 const Galeria = () => {
-  const endpoint = 'http://localhost:8000/api'
 
   const [cursos, setCursos] = useState([])
 
