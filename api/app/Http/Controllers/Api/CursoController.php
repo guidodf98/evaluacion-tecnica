@@ -115,6 +115,7 @@ class CursoController extends Controller
   {
     $cursos = Curso::where('nombre', 'like', '%' . $busqueda . '%')
       ->orWhere('descripcion', 'like', '%' . $busqueda . '%')
+      ->with('categoria')
       ->get();
 
     return $cursos;
