@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Curso;
+use App\Models\Categoria;
 use App\Models\CursoPersona;
 use Illuminate\Http\Request;
 
@@ -96,5 +97,14 @@ class CursoController extends Controller
   public function personasAnotadas(Curso $curso)
   {
     return $curso->personas;
+  }
+  
+  /**
+   * Devuelve una coleccion de cursos filtrados por la categoria
+   *
+   */
+  public function cursoPorCategoria(Categoria $categoria)
+  {
+    return $categoria->cursos;
   }
 }
