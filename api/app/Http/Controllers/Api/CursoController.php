@@ -111,8 +111,10 @@ class CursoController extends Controller
    * Devuelve una coleccion de cursos filtrados por la categoria
    *
    */
-  public function buscarCurso(string $busqueda)
+  public function buscarCurso(Request $request)
   {
+    $busqueda = $request->input('busqueda');
+
     $cursos = Curso::where('nombre', 'like', '%' . $busqueda . '%')
       ->orWhere('descripcion', 'like', '%' . $busqueda . '%')
       ->with('categoria')

@@ -8,13 +8,11 @@ const Filtros = ({ setCursos }) => {
 
 
   useEffect(() => {
-    if (busqueda !== '') {
-      buscarCurso()
-    }
+    buscarCurso()
   }, [busqueda]);
 
   const buscarCurso = async () => {
-    await axios.get(`${endpoint}/${busqueda}`)
+    await axios.get(`${endpoint}?busqueda=${busqueda}`)
       .then(response => {
         setCursos(response.data)
         console.log(response.data);
