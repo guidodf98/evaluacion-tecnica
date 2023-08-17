@@ -26,8 +26,6 @@ const ModalEditCurso = ({ getAllCursos, id }) => {
   }
 
   useEffect(() => {
-    getCategorias()
-
     if (id !== null) {
       const getCursoById = async () => {
         const response = await axios.get(`${endpoint}/${id}`);
@@ -39,6 +37,10 @@ const ModalEditCurso = ({ getAllCursos, id }) => {
       getCursoById();
     }
   }, [id]);
+
+  useEffect(() => {
+    getCategorias()
+  }, []);
 
 
   const getCategorias = async () => {

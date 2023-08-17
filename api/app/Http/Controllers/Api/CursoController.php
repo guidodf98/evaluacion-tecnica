@@ -105,6 +105,7 @@ class CursoController extends Controller
    */
   public function cursoPorCategoria(Categoria $categoria)
   {
-    return $categoria->cursos;
+      return $categoria->cursos()->with('categoria')->get();
   }
+  
 }
