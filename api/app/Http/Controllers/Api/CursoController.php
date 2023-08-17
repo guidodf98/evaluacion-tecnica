@@ -87,7 +87,6 @@ class CursoController extends Controller
     $cursoPersona->persona_id = $idPersona;
 
     $cursoPersona->save();
-
   }
 
   /**
@@ -98,14 +97,26 @@ class CursoController extends Controller
   {
     return $curso->personas;
   }
-  
+
   /**
    * Devuelve una coleccion de cursos filtrados por la categoria
    *
    */
   public function cursoPorCategoria(Categoria $categoria)
   {
-      return $categoria->cursos()->with('categoria')->get();
+    return $categoria->cursos()->with('categoria')->get();
   }
-  
+
+  /**
+   * Devuelve una coleccion de cursos filtrados por la categoria
+   *
+   */
+  public function buscarCurso(string $busqueda)
+  {
+    $cursos = Curso::where('nombre', 'like', '%' . $busqueda . '%')
+      ->orWhere('descripcion', 'like', '%' . $busqueda . '%')
+      ->get();
+
+    return $cursos;
+  }
 }
