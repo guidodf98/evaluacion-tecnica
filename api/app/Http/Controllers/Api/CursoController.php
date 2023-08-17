@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Curso;
+use App\Models\CursoPersona;
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
@@ -71,5 +72,29 @@ class CursoController extends Controller
   public function destroy(string $id)
   {
     Curso::destroy($id);
+  }
+
+  /**
+   * Devuelve una coleccion de personas que estan anotadas a un curso
+   *
+   */
+  public function anotarPersona(int $idCurso, int $idPersona)
+  {
+    $cursoPersona = new CursoPersona();
+
+    $cursoPersona->curso_id = $idCurso;
+    $cursoPersona->persona_id = $idPersona;
+
+    $cursoPersona->save();
+
+  }
+
+  /**
+   * Devuelve una coleccion de personas que estan anotadas a un curso
+   *
+   */
+  public function personasAnotadas(Curso $curso)
+  {
+    return $curso->personas;
   }
 }
