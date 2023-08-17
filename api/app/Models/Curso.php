@@ -15,4 +15,9 @@ class Curso extends Model
     {
         return $this->belongsTo(Categoria::class);
     }
+
+    public function personas()
+    {
+      return $this->belongsToMany(Persona::class);
+    }
 }
