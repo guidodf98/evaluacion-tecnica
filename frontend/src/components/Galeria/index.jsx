@@ -13,7 +13,6 @@ const Galeria = () => {
   const [cursos, setCursos] = useState([])
   const [cursosFiltrados, setCursosFiltrados] = useState([])
 
-
   useEffect(() => {
     getAllCursos()
   }, [])
@@ -28,9 +27,8 @@ const Galeria = () => {
       });
   }
 
-
   return (
-    <div className="album bg-body-tertiary">
+    <div className="album bg-body-tertiary pb-5">
 
       <Filtros setCursosFiltrados={setCursosFiltrados} cursos={cursos} />
 

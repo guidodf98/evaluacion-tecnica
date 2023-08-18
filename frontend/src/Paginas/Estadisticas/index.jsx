@@ -82,15 +82,15 @@ const Estadisticas = () => {
                         />
                         <div className="circulo-con-texto">
                           <span className="circulo" style={{ backgroundColor: '#9283BE' }}></span>
-                          <span>Femenino</span>
+                          <span>Femenino: {curso.cantFemenino}</span>
                         </div>
                         <div className="circulo-con-texto">
                           <span className="circulo" style={{ backgroundColor: '#37BBED' }}></span>
-                          <span>Masculino</span>
+                          <span>Masculino: {curso.cantMasculino}</span>
                         </div>
                         <div className="circulo-con-texto">
                           <span className="circulo" style={{ backgroundColor: '#CBCBCB' }}></span>
-                          <span>Otro</span>
+                          <span>Otro: {curso.cantOtro}</span>
                         </div>
                       </div>
                     </div>
@@ -115,11 +115,11 @@ const Estadisticas = () => {
                         />
                         <div className="circulo-con-texto">
                           <span className="circulo" style={{ backgroundColor: '#BF504E' }}></span>
-                          <span>Mayores</span>
+                          <span>Mayores: {curso.cantMayores}</span>
                         </div>
                         <div className="circulo-con-texto">
                           <span className="circulo" style={{ backgroundColor: '#9BBB58' }}></span>
-                          <span>Menores</span>
+                          <span>Menores: {curso.cantMenores}</span>
                         </div>
                       </div>
                     </div>
