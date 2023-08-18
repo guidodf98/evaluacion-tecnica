@@ -98,28 +98,4 @@ class CursoController extends Controller
     return $curso->personas;
   }
 
-  /**
-   * Devuelve una coleccion de cursos filtrados por la categoria
-   *
-   */
-  public function cursoPorCategoria(Categoria $categoria)
-  {
-    return $categoria->cursos()->with('categoria')->get();
-  }
-
-  /**
-   * Devuelve una coleccion de cursos filtrados por la categoria
-   *
-   */
-  public function buscarCurso(Request $request)
-  {
-    $busqueda = $request->input('busqueda');
-
-    $cursos = Curso::where('nombre', 'like', '%' . $busqueda . '%')
-      ->orWhere('descripcion', 'like', '%' . $busqueda . '%')
-      ->with('categoria')
-      ->get();
-
-    return $cursos;
-  }
 }
