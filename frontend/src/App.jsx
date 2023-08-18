@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from './Paginas/Home/index'
 import Administracion from './Paginas/Administracion/index'
+import Estadisticas from './Paginas/Estadisticas/index'
 import NotFound from './Paginas/Errores/NotFound'
 
 const App = () => {
@@ -12,7 +13,7 @@ const App = () => {
         <Route path="/">
           <Route index element={<Home />} />
           <Route path="/administracion" element={<Administracion />} />
-          {/* <Route path="dashboard" element={<Dashboard />} /> */}
+          <Route path="/estadisticas" element={<Estadisticas />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
