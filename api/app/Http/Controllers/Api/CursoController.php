@@ -99,4 +99,14 @@ class CursoController extends Controller
     return $cursos;
   }
 
+  /**
+   * Devuelve una colección de los ultimos {cant} de cursos agregados
+   *
+   */
+  public function ultimosCursos(int $cant)
+  {
+      $cursos = Curso::orderBy('created_at', 'desc')->take($cant)->get();
+      return $cursos;
+  }
+
 }
