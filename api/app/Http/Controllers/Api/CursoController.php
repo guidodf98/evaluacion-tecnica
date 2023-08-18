@@ -93,9 +93,10 @@ class CursoController extends Controller
    * Devuelve una coleccion de personas que estan anotadas a un curso
    *
    */
-  public function personasAnotadas(Curso $curso)
+  public function personasAnotadas()
   {
-    return $curso->personas;
+    $cursos = Curso::with('personas')->get();
+    return $cursos;
   }
 
 }

@@ -1,0 +1,12 @@
+.circulo-con-texto {
+  display: flex;
+  align-items: center;
+}
+
+.circulo {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
