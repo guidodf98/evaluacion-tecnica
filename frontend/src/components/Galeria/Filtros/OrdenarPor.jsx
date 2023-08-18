@@ -4,14 +4,14 @@ const OrdenarPor = ({ ordenarPor, setOrdenarPor }) => {
 
   return (
     <div className="col-12 col-md-4 col-lg-3">
-      <label className="visually-hidden" htmlFor="ordenar-por">Preference</label>
+      <label className="visually-hidden" htmlFor="ordenar-por">Ordenar por...</label>
       <select
         className="form-select"
         id="ordenar-por"
         value={ordenarPor}
         onChange={(e) => setOrdenarPor(e.target.value)}
       >
-        <option value="0">Ordenar por</option>
+        <option value="0">Ordenar por...</option>
         <option value="1">Orden alfabético (A...Z)</option>
         <option value="2">Orden alfabético (Z...A)</option>
         <option value="3">Fecha de creación (decendente)</option>
