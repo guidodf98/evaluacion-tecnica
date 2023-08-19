@@ -5,7 +5,7 @@ import Card from './Card'
 import AnotarPersonas from '../Modales/AnotarPersonas'
 import Filtros from './Filtros/index'
 
-const endpoint = 'http://localhost:8000/api'
+const endpoint = 'http://localhost:8000/api/cursos'
 
 const Galeria = () => {
   const [idCursoSeleccionado, setIdCursoSeleccionado] = useState(null);
@@ -18,7 +18,7 @@ const Galeria = () => {
   }, [])
 
   const getAllCursos = async () => {
-    await axios.get(`${endpoint}/cursos`)
+    await axios.get(endpoint)
       .then(response => {
         setCursos(response.data)
       })
