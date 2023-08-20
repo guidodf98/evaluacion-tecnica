@@ -19,6 +19,8 @@ return new class extends Migration
 
             $table->foreign('curso_id')->references('id')->on('cursos');
             $table->foreign('persona_id')->references('id')->on('personas');
+
+            $table->unique(['curso_id', 'persona_id']);
         });
     }
 

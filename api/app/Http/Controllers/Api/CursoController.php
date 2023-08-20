@@ -108,6 +108,15 @@ class CursoController extends Controller
     $curso = Curso::findOrFail($idCurso);
     $categoriaCurso = $curso->categoria->id;
 
+    // Verificar si la persona ya tiene la combinación de curso_id y persona_id
+    $yaInscrito = CursoPersona::where('curso_id', $idCurso)
+      ->where('persona_id', $idPersona)
+      ->exists();
+
+    if ($yaInscrito) {
+      return response()->json(['message' => 'La persona ya está inscrita en este curso'], 400);
+    }
+
     // Contar cuántos cursos con la misma categoría tiene la persona
     $cursosMismaCategoria = CursoPersona::where('persona_id', $idPersona)
       ->join('cursos', 'curso_persona.curso_id', '=', 'cursos.id')
