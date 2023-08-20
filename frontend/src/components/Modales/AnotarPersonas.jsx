@@ -39,10 +39,24 @@ const AnotarPersonas = ({ cursoId }) => {
   }
 
   const store = async (idPersona) => {
-    await axios.post(`${endpoint}/curso/${cursoId}/anotar/${idPersona}`, {
-      curso_id: cursoId,
-      persona_id: idPersona
-    })
+    try {
+      const response = await axios.post(`${endpoint}/curso/${cursoId}/anotar/${idPersona}`, {
+        curso_id: cursoId,
+        persona_id: idPersona
+      })
+
+      if (response.status === 200) {
+        console.log(`Persona ${idPersona} registrada con éxito`);
+        console.log(response.data);
+      }
+    } catch (error) {
+      if (error.response) {
+        console.error('Error de respuesta:', error.response.data);
+        alert(error.response.data.message);
+      } else if (error.request) {
+        console.error('Error de solicitud:', error);
+      }
+    }
   }
 
   const resetAll = () => {

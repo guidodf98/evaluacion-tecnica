@@ -10,4 +10,9 @@ class CursoPersona extends Model
     use HasFactory;
     protected $table = 'curso_persona';
     protected $filleable = ['curso_id', 'persona_id'];
+
+    public function curso()
+    {
+        return $this->belongsTo(Curso::class);
+    }
 }

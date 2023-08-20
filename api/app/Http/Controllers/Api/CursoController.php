@@ -104,12 +104,30 @@ class CursoController extends Controller
    */
   public function anotarPersona(int $idCurso, int $idPersona)
   {
+    // Obtener la categoría del curso actual
+    $curso = Curso::findOrFail($idCurso);
+    $categoriaCurso = $curso->categoria->id;
+
+    // Contar cuántos cursos con la misma categoría tiene la persona
+    $cursosMismaCategoria = CursoPersona::where('persona_id', $idPersona)
+      ->join('cursos', 'curso_persona.curso_id', '=', 'cursos.id')
+      ->where('categoria_id', $categoriaCurso)
+      ->count();
+
+    // Verificar si la persona ya tiene 3 cursos en la misma categoría
+    if ($cursosMismaCategoria >= 3) {
+      return response()->json(['message' => 'La persona ya tiene 3 cursos en esta categoría'], 400);
+    }
+
+    // Si no se supera el límite, crear y guardar la relación CursoPersona
     $cursoPersona = new CursoPersona();
 
     $cursoPersona->curso_id = $idCurso;
     $cursoPersona->persona_id = $idPersona;
 
     $cursoPersona->save();
+
+    return response()->json(['message' => 'Persona inscrita en el curso correctamente'], 200);
   }
 
   /**
