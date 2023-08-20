@@ -7,16 +7,28 @@ const ModalEditCategoria = ({ getAllCategorias, id }) => {
   const [nombre, setNombre] = useState('')
 
   const update = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    await axios.put(`${endpoint}/${id}`, {
-      nombre: nombre
-    })
+    try {
+      const response = await axios.put(`${endpoint}/${id}`, {
+        nombre: nombre,
+      });
 
-    document.getElementById('boton-cierre-edit').click()
-    getAllCategorias()
-    resetAll()
-  }
+      if (response.status === 201) {
+        alert('Categoria editada con exito');
+        document.getElementById('boton-cierre-edit').click()
+        getAllCategorias()
+        resetAll()
+      }
+    } catch (error) {
+      if (error.response) {
+        console.error('Error de respuesta:', error.response.data);
+        alert('Ya existe una categoria con este nombre');
+      } else if (error.request) {
+        console.error('Error de solicitud:', error);
+      }
+    }
+  };
 
   useEffect(() => {
     if (id !== null) {

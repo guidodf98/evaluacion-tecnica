@@ -26,11 +26,15 @@ class CategoriaController extends Controller
    */
   public function store(Request $request)
   {
-    $categoria = new Categoria();
+    $request->validate([
+      'nombre' => 'required|unique:categorias'
+    ]);
 
-    $categoria->nombre = $request->nombre;
+    $categoria = Categoria::create([
+      'nombre' => $request->nombre
+    ]);
 
-    $categoria->save();
+    return response()->json(['message' => 'La categoria se creo con exito', 'data' => $categoria], 201);
   }
 
   /**
@@ -51,12 +55,15 @@ class CategoriaController extends Controller
    */
   public function update(Request $request)
   {
+    $request->validate([
+      'nombre' => 'required|unique:categorias'
+    ]);
+
     $categoria = Categoria::findOrFail($request->id);
-
     $categoria->nombre = $request->nombre;
-
     $categoria->save();
-    return $categoria;
+
+    return response()->json(['message' => 'La categoria se creo con exito', 'data' => $categoria], 201);
   }
 
   /**

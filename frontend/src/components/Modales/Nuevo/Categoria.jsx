@@ -3,22 +3,34 @@ import React, { useState } from 'react'
 
 const endpoint = 'http://localhost:8000/api/categoria'
 
-const ModalCategoria = ({getAllCategorias}) => {
-
+const ModalCategoria = ({ getAllCategorias }) => {
   const [nombre, setNombre] = useState('')
 
   const store = async (e) => {
-    e.preventDefault()
-    
-    await axios.post(endpoint, {
-      nombre: nombre
-    })
+    e.preventDefault();
 
-    document.getElementById('boton-cierre').click()
-    getAllCategorias()
-    resetAll()
-  }
-  
+    try {
+      const response = await axios.post(endpoint, {
+        nombre: nombre,
+      });
+
+      if (response.status === 201) {
+        alert('Categoria creada con exito')
+        document.getElementById('boton-cierre').click()
+        getAllCategorias()
+        resetAll()
+      }
+    } catch (error) {
+      if (error.response) {
+        console.error('Error de respuesta:', error.response.data)
+        alert('Ya existe una categoria con este nombre')
+      } else if (error.request) {
+        console.error('Error de solicitud:', error)
+      }
+    }
+  };
+
+
   const resetAll = () => {
     setNombre('')
   }
