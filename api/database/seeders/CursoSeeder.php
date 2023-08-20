@@ -17,27 +17,27 @@ class CursoSeeder extends Seeder
         $cursos = [
             // Frontend
             [
-                'nombre' => 'Desarrollo Web - FrontEnd Web Developer',
-                'descripcion' => 'El mejor curso para aprender a crear aplicaciones Web Modernas con HTML, CSS y JavaScript. Serás un FrontEnd Developer!',
+                'nombre' => 'HTML, CSS',
+                'descripcion' => 'El mejor curso para aprender a crear aplicaciones Web Modernas con HTML y CSS. Serás un FrontEnd Developer!',
                 'categoria_id' => 1,
             ],
             [
-                'nombre' => 'Desarrollo Web Front-End Con HTML5, CSS3 y JavaScript',
-                'descripcion' => 'Aprende a crear sitios o aplicaciones web con HTML5, CSS3, JavaScript y compleméntalo con Less, JQuery o VUE.',
+                'nombre' => 'JavaScript',
+                'descripcion' => 'Aprende a crear sitios o aplicaciones web con JavaScript y compleméntalo con Less, JQuery o VUE.',
                 'categoria_id' => 1,
             ],
             [
-                'nombre' => 'Master en Frameworks JavaScript: Aprende Angular, React, Vue',
-                'descripcion' => 'Aprende desarrollo web con los frameworks para JavaScript más potentes. Aprenderás Angular, React JS, Vue.js, Node y más.',
+                'nombre' => 'Vue',
+                'descripcion' => 'Aprende desarrollo web con los frameworks para JavaScript más potentes. Aprenderás Vue, Node y más.',
                 'categoria_id' => 1,
             ],
             [
-                'nombre' => 'Curso Web Frontend Fundamentos: HTML, CSS y JS',
+                'nombre' => 'Fundamentos: HTML, CSS y JS',
                 'descripcion' => 'Fundamentos de Diseño Web Front-end: HTML, CSS, Lógica de Programación y Javascript.',
                 'categoria_id' => 1,
             ],
             [
-                'nombre' => 'Curso ReactJS',
+                'nombre' => 'ReactJS',
                 'descripcion' => 'Aprende React creando proyectos y retos como si trabajaras en una empresa de desarrollo.',
                 'categoria_id' => 1,
             ],
@@ -49,24 +49,24 @@ class CursoSeeder extends Seeder
 
             // Backend
             [
-                'nombre' => 'Node: De cero a experto',
+                'nombre' => 'Node JS',
                 'descripcion' => 'Rest, despliegues, Heroku, Mongo, Git, GitHub, Sockets, archivos, JWT y mucho más para ser un experto en Node.',
                 'categoria_id' => 2,
             ],
             [
-                'nombre' => 'Backend Python desde 0',
+                'nombre' => 'Python',
                 'descripcion' => 'Aprende a programar desde cero con Python y conviértete en desarrollador backend con Python y SQL creando una api rest.',
                 'categoria_id' => 2,
             ],
             [
-                'nombre' => 'Curso Experto en Backend',
+                'nombre' => 'Experto en Backend',
                 'descripcion' => 'Aprende sobre el uso de NodeJS y muchas otras dependencias para crear tu servidor backend.',
                 'categoria_id' => 2,
             ],
 
             // Bases de Datos
             [
-                'nombre' => 'Master en SQL Server',
+                'nombre' => 'SQL Server',
                 'descripcion' => 'SQL Aprende Bases de Datos, Consultas, Funciones, Tablas y Permisos. Diseña y Programa una Base de Datos Relacional SQL.',
                 'categoria_id' => 3,
             ],
@@ -76,7 +76,7 @@ class CursoSeeder extends Seeder
                 'categoria_id' => 3,
             ],
             [
-                'nombre' => 'Aprende Oracle PL',
+                'nombre' => 'Oracle PL',
                 'descripcion' => 'Aprende de forma práctica a utilizar el lenguaje de desarrollo PL para Bases de Datos Oracle 21c, 19c, e inferiores.',
                 'categoria_id' => 3,
             ],
@@ -88,17 +88,17 @@ class CursoSeeder extends Seeder
 
             // Desarrollo Movil
             [
-                'nombre' => 'Flutter Avanzado',
+                'nombre' => 'Flutter',
                 'descripcion' => 'Sesiones con JWT y Refresh Tokens,SocketIO, Google Maps, Heremaps, Platform Channels, Animaciones, WebRTC, Flavors.',
                 'categoria_id' => 4,
             ],
             [
-                'nombre' => 'Desarrollo de Aplicaciones móviles Android con App Inventor',
+                'nombre' => 'App Inventor',
                 'descripcion' => 'Crea increíbles aplicaciones móviles para Android sin programar utilizando App Inventor! 33 apps paso a paso.',
                 'categoria_id' => 4,
             ],
             [
-                'nombre' => 'Android y Kotlin Desde Cero',
+                'nombre' => 'Android y Kotlin',
                 'descripcion' => 'Desarrollo de Aplicaciones Móviles Android con Kotlin.',
                 'categoria_id' => 4,
             ],
