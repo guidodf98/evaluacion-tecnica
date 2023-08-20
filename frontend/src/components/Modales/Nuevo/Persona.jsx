@@ -12,20 +12,33 @@ const ModalPersona = ({ getAllPersonas }) => {
   const [dni, setDni] = useState(0)
 
   const store = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    await axios.post(endpoint, {
-      nombre: nombre,
-      apellido: apellido,
-      genero: genero,
-      edad: edad,
-      dni: dni
-    })
+    try {
+      const response = await axios.post(endpoint, {
+        nombre: nombre,
+        apellido: apellido,
+        genero: genero,
+        edad: edad,
+        dni: dni
+      });
 
-    document.getElementById('boton-cierre').click()
-    getAllPersonas()
-    resetAll()
-  }
+      if (response.status === 201) {
+        console.log(response);
+        alert('Persona registrada con éxito')
+        document.getElementById('boton-cierre').click()
+        getAllPersonas()
+        resetAll()
+      }
+    } catch (error) {
+      if (error.response) {
+        console.error('Error de respuesta:', error.response.data)
+        alert(error.response.data.message)
+      } else if (error.request) {
+        console.error('Error de solicitud:', error)
+      }
+    }
+  };
 
   const resetAll = () => {
     setNombre('')

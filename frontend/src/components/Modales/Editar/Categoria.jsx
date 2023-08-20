@@ -14,8 +14,8 @@ const ModalEditCategoria = ({ getAllCategorias, id }) => {
         nombre: nombre,
       });
 
-      if (response.status === 201) {
-        alert('Categoria editada con exito');
+      if (response.status === 200) {
+        alert('Categoria editada con éxito');
         document.getElementById('boton-cierre-edit').click()
         getAllCategorias()
         resetAll()

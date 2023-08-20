@@ -8,72 +8,88 @@ use Illuminate\Http\Request;
 
 class PersonaController extends Controller
 {
-    /**
-     * Devuelve todos los registros de Persona
-     *
-     * @param \Illuminate\Http\Request $request
-     */
-    public function index()
-    {
-        $personas = Persona::all();
-        return $personas;
-    }
+  /**
+   * Devuelve todos los registros de Persona
+   *
+   * @param \Illuminate\Http\Request $request
+   */
+  public function index()
+  {
+    $personas = Persona::all();
+    return $personas;
+  }
 
-    /**
-     * Almacena una nueva Persona
-     *
-     * @param \Illuminate\Http\Request $request
-     */
-    public function store(Request $request)
-    {
-        $persona = new Persona();
+  /**
+   * Almacena una nueva Persona
+   *
+   * @param \Illuminate\Http\Request $request
+   */
+  public function store(Request $request)
+  {
+    $validatedData = $request->validate([
+      'nombre' => 'required|string',
+      'apellido' => 'required|string',
+      'genero' => 'required|in:masculino,femenino,otro',
+      'edad' => 'required|integer|min:0',
+      'dni' => 'required|unique:personas,dni',
+    ]);
 
-        $persona->nombre = $request->nombre;
-        $persona->apellido = $request->apellido;
-        $persona->genero = $request->genero;
-        $persona->edad = $request->edad;
-        $persona->dni = $request->dni;
+    $persona = new Persona();
 
-        $persona->save();
-    }
+    $persona->nombre = $validatedData['nombre'];
+    $persona->apellido = $validatedData['apellido'];
+    $persona->genero = $validatedData['genero'];
+    $persona->edad = $validatedData['edad'];
+    $persona->dni = $validatedData['dni'];
 
-    /**
-     * Devuelve el registro de una Persona segun su ID
-     *
-     * @param int $id
-     */
-    public function show($id)
-    {
-        $persona = Persona::find($id);
-        return $persona;
-    }
+    return response()->json(['message' => 'Se registró la persona con éxito', 'data' => $persona], 201);
+  }
 
-    /**
-     * Edita los valores de una Persona en especifico
-     *
-     * @param \Illuminate\Http\Request $request
-     */
-    public function update(Request $request)
-    {
-        $persona = Persona::findOrFail($request->id);
+  /**
+   * Devuelve el registro de una Persona segun su ID
+   *
+   * @param int $id
+   */
+  public function show($id)
+  {
+    $persona = Persona::find($id);
+    return $persona;
+  }
 
-        $persona->nombre = $request->nombre;
-        $persona->apellido = $request->apellido;
-        $persona->genero = $request->genero;
-        $persona->edad = $request->edad;
-        $persona->dni = $request->dni;
+  /**
+   * Edita los valores de una Persona en especifico
+   *
+   * @param \Illuminate\Http\Request $request
+   */
+  public function update(Request $request)
+  {
+    $request->validate([
+      'nombre' => 'required|string',
+      'apellido' => 'required|string',
+      'genero' => 'required|in:masculino,femenino,otro',
+      'edad' => 'required|integer|min:0',
+      'dni' => 'required|unique:personas,dni,' . $request->id,
+    ]);
 
-        $persona->save();
-        return $persona;
-    }
+    $persona = Persona::findOrFail($request->id);
 
-    /**
-     * Elimina una Persona en especifico
-     *
-     * @param string $id
-     */
-    public function destroy(string $id)
-    {
-        Persona::destroy($id);
-    }
+    $persona->nombre = $request->nombre;
+    $persona->apellido = $request->apellido;
+    $persona->genero = $request->genero;
+    $persona->edad = $request->edad;
+    $persona->dni = $request->dni;
+
+    $persona->save();
+    return response()->json(['message' => 'Los datos de la persona se editaron con éxito', 'data' => $persona], 200);
+  }
+
+  /**
+   * Elimina una Persona en especifico
+   *
+   * @param string $id
+   */
+  public function destroy(string $id)
+  {
+    Persona::destroy($id);
+  }
 }

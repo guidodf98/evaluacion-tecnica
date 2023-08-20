@@ -12,20 +12,32 @@ const ModalEditPersona = ({ getAllPersonas, id }) => {
   const [dni, setDni] = useState(0)
 
   const update = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    await axios.put(`${endpoint}/${id}`, {
-      nombre: nombre,
-      apellido: apellido,
-      genero: genero,
-      edad: edad,
-      dni: dni
-    })
+    try {
+      const response = await axios.put(`${endpoint}/${id}`, {
+        nombre: nombre,
+        apellido: apellido,
+        genero: genero,
+        edad: edad,
+        dni: dni
+      });
 
-    document.getElementById('boton-cierre-edit').click()
-    getAllPersonas()
-    resetAll()
-  }
+      if (response.status === 200) {
+        alert('Datos de persona editados con éxito');
+        document.getElementById('boton-cierre-edit').click()
+        getAllPersonas()
+        resetAll()
+      }
+    } catch (error) {
+      if (error.response) {
+        console.error('Error de respuesta:', error.response.data);
+        alert(error.response.data.message)
+      } else if (error.request) {
+        console.error('Error de solicitud:', error);
+      }
+    }
+  };
 
   useEffect(() => {
     if (id !== null) {

@@ -33,8 +33,7 @@ class CursoController extends Controller
     ];
 
     $request->validate([
-      // Verifica que el nombre sea único dentro de la misma categoría
-      // y que no esté vacío. El tercer argumento es NULL para crear nuevos registros.
+      // Verifica que el nombre sea único dentro de la misma categoría. El tercer argumento es NULL para crear nuevos registros.
       'nombre' => 'required|unique:cursos,nombre,NULL,id,categoria_id,' . $request->categoria_id,
       'descripcion' => 'required',
       'categoria_id' => 'required|exists:categorias,id'
@@ -73,8 +72,7 @@ class CursoController extends Controller
     ];
 
     $request->validate([
-      // Verifica que el nombre sea único dentro de la misma categoría
-      // y que no esté vacío. El tercer argumento es NULL para crear nuevos registros.
+      // Verifica que el nombre sea único dentro de la misma categoría.
       'nombre' => 'required|unique:cursos,nombre,' . $request->id . ',id,categoria_id,' . $request->categoria_id,
       'descripcion' => 'required',
       'categoria_id' => 'required|exists:categorias,id'
@@ -87,7 +85,7 @@ class CursoController extends Controller
     $curso->categoria_id = $request->categoria_id;
 
     $curso->save();
-    return response()->json(['message' => 'El curso se editó con éxito', 'data' => $curso], 201);
+    return response()->json(['message' => 'El curso se editó con éxito', 'data' => $curso], 200);
   }
 
   /**

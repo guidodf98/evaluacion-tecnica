@@ -15,7 +15,7 @@ const ModalCategoria = ({ getAllCategorias }) => {
       });
 
       if (response.status === 201) {
-        alert('Categoria creada con exito')
+        alert('Categoria creada con éxito')
         document.getElementById('boton-cierre').click()
         getAllCategorias()
         resetAll()
@@ -52,7 +52,7 @@ const ModalCategoria = ({ getAllCategorias }) => {
               <div className="modal-body">
                 <div className="mb-3">
                   <label htmlFor="nombre" className="form-label">Nombre</label>
-                  <input value={nombre} onChange={(e) => setNombre(e.target.value)} type="text" className="form-control" id="nombre" required/>
+                  <input value={nombre} onChange={(e) => setNombre(e.target.value)} type="text" className="form-control" id="nombre" required />
                 </div>
               </div>
               <div className="modal-footer">

@@ -63,7 +63,7 @@ class CategoriaController extends Controller
     $categoria->nombre = $request->nombre;
     $categoria->save();
 
-    return response()->json(['message' => 'La categoria se editó con éxito', 'data' => $categoria], 201);
+    return response()->json(['message' => 'La categoria se editó con éxito', 'data' => $categoria], 200);
   }
 
   /**

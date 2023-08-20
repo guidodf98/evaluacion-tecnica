@@ -22,13 +22,13 @@ const ModalCurso = ({ getAllCursos }) => {
     try {
       const response = await axios.post(endpoint, {
         nombre: nombre,
-      descripcion: descripcion,
-      categoria_id: categoria_id
-    });
+        descripcion: descripcion,
+        categoria_id: categoria_id
+      });
 
       if (response.status === 201) {
         console.log(response);
-        alert('Curso creado con exito')
+        alert('Curso creado con éxito')
         document.getElementById('boton-cierre').click()
         getAllCursos()
         resetAll()
@@ -76,11 +76,11 @@ const ModalCurso = ({ getAllCursos }) => {
               <div className="modal-body">
                 <div className="mb-3">
                   <label htmlFor="nombre" className="form-label">Nombre</label>
-                  <input value={nombre} onChange={(e) => setNombre(e.target.value)} type="text" className="form-control" id="nombre" required/>
+                  <input value={nombre} onChange={(e) => setNombre(e.target.value)} type="text" className="form-control" id="nombre" required />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="descripcion" className="form-label">Descripcion</label>
-                  <textarea value={descripcion} onChange={(e) => setDescripcion(e.target.value)} className="form-control" id="descripcion" required/>
+                  <textarea value={descripcion} onChange={(e) => setDescripcion(e.target.value)} className="form-control" id="descripcion" required />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="categoria_id" className="form-label">Categoria</label>
