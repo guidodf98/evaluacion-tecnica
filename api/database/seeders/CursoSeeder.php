@@ -17,7 +17,7 @@ class CursoSeeder extends Seeder
         $cursos = [
             // Frontend
             [
-                'nombre' => 'HTML, CSS',
+                'nombre' => 'HTML y CSS',
                 'descripcion' => 'El mejor curso para aprender a crear aplicaciones Web Modernas con HTML y CSS. Serás un FrontEnd Developer!',
                 'categoria_id' => 1,
             ],
