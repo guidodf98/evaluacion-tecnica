@@ -84,15 +84,15 @@ const ModalEditCurso = ({ getAllCursos, id }) => {
               <div className="modal-body">
                 <div className="mb-3">
                   <label htmlFor="nombre" className="form-label">Nombre</label>
-                  <input value={nombre} onChange={(e) => setNombre(e.target.value)} type="text" className="form-control" id="nombre" />
+                  <input value={nombre} onChange={(e) => setNombre(e.target.value)} type="text" className="form-control" id="nombre" required/>
                 </div>
                 <div className="mb-3">
                   <label htmlFor="descripcion" className="form-label">Descripcion</label>
-                  <textarea value={descripcion} rows={8} onChange={(e) => setDescripcion(e.target.value)} className="form-control" id="descripcion" />
+                  <textarea value={descripcion} rows={8} onChange={(e) => setDescripcion(e.target.value)} className="form-control" id="descripcion" required/>
                 </div>
                 <div className="mb-3">
                   <label htmlFor="categoria_id" className="form-label">Categoria</label>
-                  <select value={categoria_id} onChange={(e) => setCategoria(e.target.value)} className="form-select" aria-label="Default select example" id="categoria_id">
+                  <select value={categoria_id} onChange={(e) => setCategoria(e.target.value)} className="form-select" aria-label="Default select example" id="categoria_id" required>
                     {categorias.map((categoria) => (
                       <option value={categoria.id} key={categoria.id}>{categoria.nombre}</option>
                     ))}
