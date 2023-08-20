@@ -23,7 +23,7 @@ const ModalCategoria = ({ getAllCategorias }) => {
     } catch (error) {
       if (error.response) {
         console.error('Error de respuesta:', error.response.data)
-        alert('Ya existe una categoria con este nombre')
+        alert(error.response.data.message)
       } else if (error.request) {
         console.error('Error de solicitud:', error)
       }

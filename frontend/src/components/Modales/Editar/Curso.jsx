@@ -12,18 +12,30 @@ const ModalEditCurso = ({ getAllCursos, id }) => {
   const [categoria_id, setCategoria] = useState(1)
 
   const update = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    await axios.put(`${endpoint}/${id}`, {
-      nombre: nombre,
-      descripcion: descripcion,
-      categoria_id: categoria_id
-    })
+    try {
+      const response = await axios.put(`${endpoint}/${id}`, {
+        nombre: nombre,
+        descripcion: descripcion,
+        categoria_id: categoria_id
+      });
 
-    document.getElementById('boton-cierre-edit').click()
-    getAllCursos()
-    resetAll()
-  }
+      if (response.status === 201) {
+        alert('Curso editada con exito');
+        document.getElementById('boton-cierre-edit').click()
+        getAllCursos()
+        resetAll()
+      }
+    } catch (error) {
+      if (error.response) {
+        console.error('Error de respuesta:', error.response.data);
+        alert(error.response.data.message)
+      } else if (error.request) {
+        console.error('Error de solicitud:', error);
+      }
+    }
+  };
 
   useEffect(() => {
     if (id !== null) {

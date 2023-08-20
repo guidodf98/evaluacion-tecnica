@@ -28,14 +28,27 @@ class CursoController extends Controller
    */
   public function store(Request $request)
   {
-    $curso = new Curso();
+    $messages = [
+      'nombre.unique' => 'El nombre ya está en uso para esta categoría.'
+    ];
 
+    $request->validate([
+      // Verifica que el nombre sea único dentro de la misma categoría
+      // y que no esté vacío. El tercer argumento es NULL para crear nuevos registros.
+      'nombre' => 'required|unique:cursos,nombre,NULL,id,categoria_id,' . $request->categoria_id,
+      'descripcion' => 'required',
+      'categoria_id' => 'required|exists:categorias,id'
+    ], $messages);
+
+    $curso = new Curso();
     $curso->nombre = $request->nombre;
     $curso->descripcion = $request->descripcion;
     $curso->categoria_id = $request->categoria_id;
-
     $curso->save();
+
+    return response()->json(['message' => 'El curso se creó con éxito', 'data' => $curso], 201);
   }
+
 
   /**
    * Devuelve el registro de un Curso segun su ID
@@ -55,6 +68,18 @@ class CursoController extends Controller
    */
   public function update(Request $request)
   {
+    $messages = [
+      'nombre.unique' => 'El nombre ya está en uso para esta categoría.'
+    ];
+
+    $request->validate([
+      // Verifica que el nombre sea único dentro de la misma categoría
+      // y que no esté vacío. El tercer argumento es NULL para crear nuevos registros.
+      'nombre' => 'required|unique:cursos,nombre,' . $request->id . ',id,categoria_id,' . $request->categoria_id,
+      'descripcion' => 'required',
+      'categoria_id' => 'required|exists:categorias,id'
+    ], $messages);
+
     $curso = Curso::findOrFail($request->id);
 
     $curso->nombre = $request->nombre;
@@ -62,7 +87,7 @@ class CursoController extends Controller
     $curso->categoria_id = $request->categoria_id;
 
     $curso->save();
-    return $curso;
+    return response()->json(['message' => 'El curso se editó con éxito', 'data' => $curso], 201);
   }
 
   /**
@@ -105,8 +130,7 @@ class CursoController extends Controller
    */
   public function ultimosCursos(int $cant)
   {
-      $cursos = Curso::orderBy('created_at', 'desc')->take($cant)->get();
-      return $cursos;
+    $cursos = Curso::orderBy('created_at', 'desc')->take($cant)->get();
+    return $cursos;
   }
-
 }

@@ -17,18 +17,31 @@ const ModalCurso = ({ getAllCursos }) => {
   }, [])
 
   const store = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    await axios.post(endpoint, {
-      nombre: nombre,
+    try {
+      const response = await axios.post(endpoint, {
+        nombre: nombre,
       descripcion: descripcion,
       categoria_id: categoria_id
-    })
+    });
 
-    document.getElementById('boton-cierre').click()
-    getAllCursos()
-    resetAll()
-  }
+      if (response.status === 201) {
+        console.log(response);
+        alert('Curso creado con exito')
+        document.getElementById('boton-cierre').click()
+        getAllCursos()
+        resetAll()
+      }
+    } catch (error) {
+      if (error.response) {
+        console.error('Error de respuesta:', error.response.data)
+        alert(error.response.data.message)
+      } else if (error.request) {
+        console.error('Error de solicitud:', error)
+      }
+    }
+  };
 
   const getCategorias = async () => {
     await axios.get(endpointCategorias)
