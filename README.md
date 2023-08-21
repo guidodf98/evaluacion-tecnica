@@ -22,7 +22,7 @@ Evaluación Técnica Guido Di Fiore
       - [Inscribir Persona en Curso](#inscribir-persona-en-curso)
       - [Listar Cursos con Personas](#listar-cursos-con-personas)
       - [Listar Últimos Cursos](#listar-últimos-cursos)
-    - [Categorias](#categorias)
+    - [Categorías](#categorías)
       - [Listar Categorías](#listar-categorías)
       - [Crear Categoría](#crear-categoría)
       - [Mostrar Categoría](#mostrar-categoría)
@@ -41,7 +41,7 @@ Asegúrate de tener instalados los siguientes componentes antes de comenzar:
 
 ## Instalación
 
-seguir estos pasos para instalar y configurar la API y el frontend:
+Seguir estos pasos para instalar y configurar la API y el frontend:
 
 ### API (Laravel)
 
@@ -50,7 +50,7 @@ seguir estos pasos para instalar y configurar la API y el frontend:
    cd api
    ```
    
-2. Copiar el archivo de configuración .env.example y renómbralo a .env. Luego, configura las variables de entorno, como la conexión a la base de datos.
+2. Copiar el archivo de configuración .env.example y renombralo a .env. Luego, configura las variables de entorno, como la conexión a la base de datos.
 
 3. Instalar las dependencias de Composer:
 
@@ -195,7 +195,7 @@ Ruta: GET /personas
 - Parámetros: {cant} - Cantidad de cursos a mostrar.
 
 
-### Categorias
+### Categorías
 
 #### Listar Categorías
 - Descripción: Retorna una colección de todas las categorías registradas.
