@@ -4,14 +4,13 @@ import axios from 'axios'
 import './Hero.css'
 
 const API_URL = import.meta.env.VITE_API_ENDPOINT;
-const endpoint = `${API_URL}/cursos/cursos/ultimos`
+const endpoint = `${API_URL}/cursos/ultimos`
 
 const Hero = () => {
   const [cursos, setCursos] = useState([])
 
   useEffect(() => {
     getAllCursos()
-    console.log(cursos);
   }, [])
 
   const getAllCursos = async () => {

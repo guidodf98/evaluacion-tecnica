@@ -81,12 +81,11 @@ class CursoController extends Controller
     ], $messages);
 
     $curso = Curso::findOrFail($request->id);
-
     $curso->nombre = $request->nombre;
     $curso->descripcion = $request->descripcion;
     $curso->categoria_id = $request->categoria_id;
-
     $curso->save();
+
     return response()->json(['message' => 'El curso se editó con éxito', 'data' => $curso], 200);
   }
 

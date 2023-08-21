@@ -36,12 +36,12 @@ class PersonaController extends Controller
     ]);
 
     $persona = new Persona();
-
     $persona->nombre = $validatedData['nombre'];
     $persona->apellido = $validatedData['apellido'];
     $persona->genero = $validatedData['genero'];
     $persona->edad = $validatedData['edad'];
     $persona->dni = $validatedData['dni'];
+    $persona->save();
 
     return response()->json(['message' => 'Se registró la persona con éxito', 'data' => $persona], 201);
   }
@@ -75,14 +75,13 @@ class PersonaController extends Controller
     ]);
 
     $persona = Persona::findOrFail($request->id);
-
     $persona->nombre = $request->nombre;
     $persona->apellido = $request->apellido;
     $persona->genero = $request->genero;
     $persona->edad = $request->edad;
     $persona->dni = $request->dni;
-
     $persona->save();
+
     return response()->json(['message' => 'Los datos de la persona se editaron con éxito', 'data' => $persona], 200);
   }
 

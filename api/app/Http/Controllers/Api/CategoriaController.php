@@ -35,7 +35,7 @@ class CategoriaController extends Controller
       'nombre' => $request->nombre
     ]);
 
-    return response()->json(['message' => 'La categoria se creó con éxito', 'data' => $categoria], 200);
+    return response()->json(['message' => 'La categoria se creó con éxito', 'data' => $categoria], 201);
   }
 
   /**

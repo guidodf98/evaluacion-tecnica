@@ -25,7 +25,6 @@ const ModalPersona = ({ getAllPersonas }) => {
       });
 
       if (response.status === 201) {
-        console.log(response);
         alert('Persona registrada con éxito')
         document.getElementById('boton-cierre').click()
         getAllPersonas()
@@ -82,11 +81,11 @@ const ModalPersona = ({ getAllPersonas }) => {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="edad" className="form-label">Edad</label>
-                  <input value={edad} onChange={(e) => setEdad(e.target.value)} type="text" className="form-control" id="edad" />
+                  <input value={edad} onChange={(e) => setEdad(e.target.value)} type="number" min="0" className="form-control" id="edad" />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="dni" className="form-label">DNI</label>
-                  <input value={dni} onChange={(e) => setDni(e.target.value)} type="text" className="form-control" id="dni" />
+                  <input value={dni} onChange={(e) => setDni(e.target.value)} type="number" min="0" className="form-control" id="dni" />
                 </div>
               </div>
               <div className="modal-footer">

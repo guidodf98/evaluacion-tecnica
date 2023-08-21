@@ -28,7 +28,6 @@ const ModalCurso = ({ getAllCursos }) => {
       });
 
       if (response.status === 201) {
-        console.log(response);
         alert('Curso creado con éxito')
         document.getElementById('boton-cierre').click()
         getAllCursos()
@@ -73,29 +72,35 @@ const ModalCurso = ({ getAllCursos }) => {
               <h1 className="modal-title fs-5" id="modalCursoLabel">Nuevo Curso</h1>
               <button id='boton-cierre' type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
-            <form onSubmit={store}>
+            {categorias.length === 0 ? (
               <div className="modal-body">
-                <div className="mb-3">
-                  <label htmlFor="nombre" className="form-label">Nombre</label>
-                  <input value={nombre} onChange={(e) => setNombre(e.target.value)} type="text" className="form-control" id="nombre" required />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="descripcion" className="form-label">Descripcion</label>
-                  <textarea value={descripcion} onChange={(e) => setDescripcion(e.target.value)} className="form-control" id="descripcion" required />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="categoria_id" className="form-label">Categoria</label>
-                  <select value={categoria_id} onChange={(e) => setCategoria(e.target.value)} className="form-select" aria-label="Default select example" id="categoria_id" required>
-                    {categorias.map((categoria) => (
-                      <option value={categoria.id} key={categoria.id}>{categoria.nombre}</option>
-                    ))}
-                  </select>
-                </div>
+                <p>Por favor, agregue categorías primero.</p>
               </div>
-              <div className="modal-footer">
-                <button type="submit" className="btn btn-primary">Guardar</button>
-              </div>
-            </form>
+            ) : (
+              <form onSubmit={store}>
+                <div className="modal-body">
+                  <div className="mb-3">
+                    <label htmlFor="nombre" className="form-label">Nombre</label>
+                    <input value={nombre} onChange={(e) => setNombre(e.target.value)} type="text" className="form-control" id="nombre" required />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="descripcion" className="form-label">Descripcion</label>
+                    <textarea value={descripcion} onChange={(e) => setDescripcion(e.target.value)} className="form-control" id="descripcion" required />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="categoria_id" className="form-label">Categoria</label>
+                    <select value={categoria_id} onChange={(e) => setCategoria(e.target.value)} className="form-select" aria-label="Default select example" id="categoria_id" required>
+                      {categorias.map((categoria) => (
+                        <option value={categoria.id} key={categoria.id}>{categoria.nombre}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <div className="modal-footer">
+                  <button type="submit" className="btn btn-primary">Guardar</button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </div>

@@ -48,7 +48,6 @@ const AnotarPersonas = ({ cursoId }) => {
 
       if (response.status === 200) {
         console.log(`Persona ${idPersona} registrada con éxito`);
-        console.log(response.data);
       }
     } catch (error) {
       if (error.response) {
@@ -74,21 +73,27 @@ const AnotarPersonas = ({ cursoId }) => {
               <h1 className="modal-title fs-5" id="modalAnotarPersonasLabel">Anotar personas al curso</h1>
               <button id="boton-cierre-anotar" type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form onSubmit={handleSubmit}>
+            {personas.length === 0 ? (
               <div className="modal-body">
-                <div>
-                  <MultiSelect
-                    options={options}
-                    value={personasSeleccionadas}
-                    onChange={setPersonasSeleccionadas}
-                    labelledBy="Seleccionar"
-                  />
+                <p>No hay personas disponibles para anotar. Agregue personas primero.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <div className="modal-body">
+                  <div>
+                    <MultiSelect
+                      options={options}
+                      value={personasSeleccionadas}
+                      onChange={setPersonasSeleccionadas}
+                      labelledBy="Seleccionar"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="modal-footer">
-                <button type="submit" className="btn btn-primary">Anotar</button>
-              </div>
-            </form>
+                <div className="modal-footer">
+                  <button type="submit" className="btn btn-primary">Anotar</button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </div>
