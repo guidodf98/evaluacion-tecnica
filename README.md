@@ -67,11 +67,12 @@ php artisan key:generate
 ```sh
 php artisan migrate
 ```
-O si se desean datos de prueba (cursos, personas y categorias)
+6. Si se desean datos de prueba (cursos, personas y categorias)
+
 ```sh
 php artisan migrate:refresh --seed
 ```
-6. Iniciar el servidor de la api:
+7. Iniciar el servidor de la api:
 
 ```sh
 php artisan serve
