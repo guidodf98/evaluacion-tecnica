@@ -37,7 +37,7 @@ Ruta: GET /personas
 - Descripción: Crea una nueva persona y la agrega a la base de datos.
 - Ruta: POST /persona
 - Body: 
-```json
+```json5
 {
   "nombre": "Nombre de la persona",
   "apellido": "Apellido de la persona",
@@ -57,7 +57,7 @@ Ruta: GET /personas
 - Ruta: PUT /persona/{id}
 - Parámetros: {id} - ID de la persona a actualizar.
 - Body: 
-```json
+```json5
 {
   "nombre": "Nuevo nombre",
   "apellido": "Nuevo apellido",
@@ -83,7 +83,7 @@ Ruta: GET /personas
 - Descripción: Crea un nuevo curso y lo agrega a la base de datos.
 - Ruta: POST /curso
 - Body: 
-```json
+```json5
 {
   "nombre": "Nombre del curso",
   "descripcion": "Descripción del curso",
@@ -101,7 +101,7 @@ Ruta: GET /personas
 - Ruta: PUT /curso/{id}
 - Parámetros: {id} - ID del curso a actualizar.
 - Body: 
-```json
+```json5
 {
   "nombre": "Nuevo nombre del curso",
   "descripcion": "Nueva descripción del curso",
@@ -140,7 +140,7 @@ Ruta: GET /personas
 - Descripción: Crea una nueva categoría y la agrega a la base de datos.
 - Ruta: POST /categoria
 - Body: 
-```json
+```json5
 {
   "nombre": "Nombre de la categoría"
 }
@@ -156,7 +156,7 @@ Ruta: GET /personas
 - Ruta: PUT /categoria/{id}
 - Parámetros: {id} - ID de la categoría a actualizar.
 - Body: 
-```json
+```json5
 {
   "nombre": "Nuevo nombre de la categoría"
 }
