@@ -5,7 +5,8 @@ import axios from 'axios'
 
 import './index.css'
 
-const endpoint = 'http://localhost:8000/api/cursos/personas'
+const API_URL = import.meta.env.VITE_API_ENDPOINT;
+const endpoint = `${API_URL}/cursos/personas`
 
 const Estadisticas = () => {
   const [cursosConPersonas, setCursosConPersonas] = useState([])

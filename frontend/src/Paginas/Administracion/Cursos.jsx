@@ -5,7 +5,8 @@ import Td from '../../components/Tablas/Td'
 import ModalCurso from '../../components/Modales/Nuevo/Curso'
 import ModalEditCurso from '../../components/Modales/Editar/Curso'
 
-const endpoint = 'http://localhost:8000/api'
+const API_URL = import.meta.env.VITE_API_ENDPOINT;
+const endpoint = `${API_URL}`
 
 const Cursos = () => {
   const [cursos, setCursos] = useState([])

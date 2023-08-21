@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 
-const endpoint = 'http://localhost:8000/api/persona'
+const API_URL = import.meta.env.VITE_API_ENDPOINT;
+const endpoint = `${API_URL}/persona`
 
 const ModalEditPersona = ({ getAllPersonas, id }) => {
 

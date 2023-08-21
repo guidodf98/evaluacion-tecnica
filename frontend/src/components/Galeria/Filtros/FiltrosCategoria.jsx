@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const endpoint = 'http://localhost:8000/api/categorias'
+const API_URL = import.meta.env.VITE_API_ENDPOINT;
+const endpoint = `${API_URL}/categorias`
 
 const FiltrosCategoria = ({ filtroCategoria, setFiltroCategoria }) => {
   const [categorias, setCategorias] = useState([])

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import { MultiSelect } from "react-multi-select-component";
 
-const endpoint = 'http://localhost:8000/api'
+const API_URL = import.meta.env.VITE_API_ENDPOINT;
+const endpoint = `${API_URL}`
 
 const AnotarPersonas = ({ cursoId }) => {
   const [personas, setPersona] = useState([])

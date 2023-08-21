@@ -5,7 +5,8 @@ import Td from '../../components/Tablas/Td'
 import ModalCategoria from '../../components/Modales/Nuevo/Categoria'
 import ModalEditCategoria from '../../components/Modales/Editar/Categoria'
 
-const endpoint = 'http://localhost:8000/api'
+const API_URL = import.meta.env.VITE_API_ENDPOINT;
+const endpoint = `${API_URL}`
 
 const Categorias = () => {
   const [categorias, setCategorias] = useState([])

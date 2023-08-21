@@ -5,7 +5,8 @@ import Td from '../../components/Tablas/Td'
 import ModalPersona from '../../components/Modales/Nuevo/Persona'
 import ModalEditPersona from '../../components/Modales/Editar/Persona'
 
-const endpoint = 'http://localhost:8000/api'
+const API_URL = import.meta.env.VITE_API_ENDPOINT;
+const endpoint = `${API_URL}`
 
 const Persona = () => {
   const [personas, setPersona] = useState([])

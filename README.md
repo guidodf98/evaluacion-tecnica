@@ -41,51 +41,54 @@ Asegúrate de tener instalados los siguientes componentes antes de comenzar:
 
 ## Instalación
 
-Sigue estos pasos para instalar y configurar tanto la API como el frontend:
+seguir estos pasos para instalar y configurar la API y el frontend:
 
 ### API (Laravel)
 
-1. Navega a la carpeta `api`:
+1. Navegar a la carpeta `api`:
    ```sh
    cd api
    ```
+   
 2. Copiar el archivo de configuración .env.example y renómbralo a .env. Luego, configura las variables de entorno, como la conexión a la base de datos.
 
-3. Instala las dependencias de Composer:
+3. Instalar las dependencias de Composer:
 
 ```sh
 composer install
 ```
-4. Genera la clave de la aplicación:
+4. Generar la clave de la aplicación:
 
 ```sh
 php artisan key:generate
 ```
-5. Ejecuta las migraciones para crear las tablas de la base de datos:
+5. Ejecutar las migraciones para crear las tablas de la base de datos:
 
 ```sh
 php artisan migrate
 ```
-6. Inicia el servidor de la api:
+6. Iniciar el servidor de la api:
 
 ```sh
 php artisan serve
 ```
 ### Frontend (React)
-1. Navega a la carpeta frontend:
+1. Navegar a la carpeta frontend:
 ```sh
 cd frontend
 ```
 
-2. Instala las dependencias de Node.js:
+2. Instalar las dependencias de Node.js:
 ```sh
 npm install
 ```
-3. Inicia la aplicación de React:
+3. Iniciar la aplicación de React:
 
 ```sh
 npm start
 ```
+
+4. De ser necesario, entrar al archivo `.env` y reemplazar la URL de la API:
 
 ## API ENDPOINTS
 

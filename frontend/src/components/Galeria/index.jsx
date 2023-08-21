@@ -5,7 +5,8 @@ import Card from './Card'
 import AnotarPersonas from '../Modales/AnotarPersonas'
 import Filtros from './Filtros/index'
 
-const endpoint = 'http://localhost:8000/api/cursos'
+const API_URL = import.meta.env.VITE_API_ENDPOINT;
+const endpoint = `${API_URL}/cursos`
 
 const Galeria = () => {
   const [idCursoSeleccionado, setIdCursoSeleccionado] = useState(null);

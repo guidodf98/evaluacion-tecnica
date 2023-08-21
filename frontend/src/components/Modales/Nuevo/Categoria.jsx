@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 
-const endpoint = 'http://localhost:8000/api/categoria'
+const API_URL = import.meta.env.VITE_API_ENDPOINT;
+const endpoint = `${API_URL}/categoria`
 
 const ModalCategoria = ({ getAllCategorias }) => {
   const [nombre, setNombre] = useState('')

@@ -1,8 +1,9 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 
-const endpoint = 'http://localhost:8000/api/curso'
-const endpointCategorias = 'http://localhost:8000/api/categorias'
+const API_URL = import.meta.env.VITE_API_ENDPOINT;
+const endpoint = `${API_URL}/curso`
+const endpointCategorias = `${API_URL}/categorias`
 
 const ModalEditCurso = ({ getAllCursos, id }) => {
   const [categorias, setCategorias] = useState([])

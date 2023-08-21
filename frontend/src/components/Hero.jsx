@@ -3,7 +3,8 @@ import axios from 'axios'
 
 import './Hero.css'
 
-const endpoint = 'http://localhost:8000/api/cursos/ultimos'
+const API_URL = import.meta.env.VITE_API_ENDPOINT;
+const endpoint = `${API_URL}/cursos/cursos/ultimos`
 
 const Hero = () => {
   const [cursos, setCursos] = useState([])
