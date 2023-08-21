@@ -90,7 +90,7 @@ npm install
 3. Iniciar la aplicación de React:
 
 ```sh
-npm start
+npm run dev
 ```
 
 4. De ser necesario, entrar al archivo `.env` y reemplazar la URL de la API:
