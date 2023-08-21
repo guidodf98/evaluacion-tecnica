@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 class PersonaController extends Controller
 {
   /**
-   * Devuelve todos los registros de Persona
+   * Obtiene una colección de todos las personas disponibles.
    *
-   * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Database\Eloquent\Collection
    */
   public function index()
   {
@@ -20,9 +20,10 @@ class PersonaController extends Controller
   }
 
   /**
-   * Almacena una nueva Persona
+   * Almacena una nueva persona.
    *
    * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\JsonResponse
    */
   public function store(Request $request)
   {
@@ -46,9 +47,10 @@ class PersonaController extends Controller
   }
 
   /**
-   * Devuelve el registro de una Persona segun su ID
+   * Recupera y muestra la información de una persona mediante su ID.
    *
    * @param int $id
+   * @return \Illuminate\Database\Eloquent\Model|null
    */
   public function show($id)
   {
@@ -57,9 +59,10 @@ class PersonaController extends Controller
   }
 
   /**
-   * Edita los valores de una Persona en especifico
+   * Actualiza los valores de una persona específica.
    *
    * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\JsonResponse
    */
   public function update(Request $request)
   {
@@ -84,9 +87,9 @@ class PersonaController extends Controller
   }
 
   /**
-   * Elimina una Persona en especifico
+   * Elimina una persona específica.
    *
-   * @param string $id
+   * @param int $id
    */
   public function destroy(string $id)
   {

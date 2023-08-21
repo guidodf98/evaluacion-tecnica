@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 class CategoriaController extends Controller
 {
   /**
-   * Devuelve todos los registros de Categoria
+   * Obtiene una colección de todas las categorías disponibles.
    *
-   * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Database\Eloquent\Collection
    */
   public function index()
   {
@@ -20,9 +20,10 @@ class CategoriaController extends Controller
   }
 
   /**
-   * Almacena una nueva Categoria
+   * Almacena una nueva categoría.
    *
    * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\JsonResponse
    */
   public function store(Request $request)
   {
@@ -38,20 +39,22 @@ class CategoriaController extends Controller
   }
 
   /**
-   * Devuelve el registro de una Categoria segun su ID
+   * Recupera y muestra la información de una categoría mediante su ID.
    *
    * @param int $id
+   * @return \Illuminate\Database\Eloquent\Model\Categoria|null
    */
-  public function show($id)
+  public function show(int $id)
   {
     $categoria = Categoria::find($id);
     return $categoria;
   }
 
   /**
-   * Edita los valores de una Categoria en especifico
+   * Actualiza los valores de una categoría específica.
    *
    * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\JsonResponse
    */
   public function update(Request $request)
   {
@@ -67,11 +70,11 @@ class CategoriaController extends Controller
   }
 
   /**
-   * Elimina una Categoria en especifico
+   * Elimina una categoría específica.
    *
-   * @param string $id
+   * @param int $id
    */
-  public function destroy(string $id)
+  public function destroy(int $id)
   {
     Categoria::destroy($id);
   }

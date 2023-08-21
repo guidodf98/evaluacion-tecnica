@@ -4,16 +4,15 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Curso;
-use App\Models\Categoria;
 use App\Models\CursoPersona;
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
 {
   /**
-   * Devuelve todos los registros de Curso
+   * Obtiene una colección de todos los cursos disponibles.
    *
-   * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Database\Eloquent\Collection
    */
   public function index()
   {
@@ -22,9 +21,10 @@ class CursoController extends Controller
   }
 
   /**
-   * Almacena una nuevo Curso
+   * Almacena un nuevo curso.
    *
    * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\JsonResponse
    */
   public function store(Request $request)
   {
@@ -50,9 +50,10 @@ class CursoController extends Controller
 
 
   /**
-   * Devuelve el registro de un Curso segun su ID
+   * Recupera y muestra la información de un curso mediante su ID.
    *
    * @param int $id
+   * @return \Illuminate\Database\Eloquent\Model|null
    */
   public function show($id)
   {
@@ -61,9 +62,10 @@ class CursoController extends Controller
   }
 
   /**
-   * Edita los valores de un Curso en especifico
+   * Actualiza los valores de un curso específico.
    *
    * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\JsonResponse
    */
   public function update(Request $request)
   {
@@ -89,9 +91,9 @@ class CursoController extends Controller
   }
 
   /**
-   * Elimina un Curso en especifico
+   * Elimina un curso específico.
    *
-   * @param string $id
+   * @param int $id
    */
   public function destroy(string $id)
   {
@@ -99,8 +101,11 @@ class CursoController extends Controller
   }
 
   /**
-   * Devuelve una coleccion de personas que estan anotadas a un curso
+   * Inscribe a una persona en un curso específico.
    *
+   * @param int $idCurso ID del curso al que se desea inscribir la persona.
+   * @param int $idPersona ID de la persona que se inscribirá en el curso.
+   * @return \Illuminate\Http\JsonResponse
    */
   public function anotarPersona(int $idCurso, int $idPersona)
   {
@@ -140,8 +145,9 @@ class CursoController extends Controller
   }
 
   /**
-   * Devuelve una coleccion de personas que estan anotadas a un curso
+   * Devuelve una colección de cursos con las personas inscritas en cada uno.
    *
+   * @return \Illuminate\Database\Eloquent\Collection
    */
   public function personasAnotadas()
   {
@@ -150,8 +156,10 @@ class CursoController extends Controller
   }
 
   /**
-   * Devuelve una colección de los ultimos {cant} de cursos agregados
+   * Devuelve una colección de los últimos cursos agregados.
    *
+   * @param int $cant Cantidad de cursos a obtener.
+   * @return \Illuminate\Database\Eloquent\Collection
    */
   public function ultimosCursos(int $cant)
   {

@@ -35,9 +35,9 @@ Route::controller(CursoController::class)->group(function () {
   Route::get('/curso/{id}', 'show');
   Route::put('/curso/{id}', 'update');
   Route::delete('/curso/{id}', 'destroy');
-  Route::post('/curso/{idCurso}/anotar/{idPersona}', 'anotarPersona'); // Registra una persona a un curso
-  Route::get('/cursos/personas', 'personasAnotadas'); // Devuelve una coleccion cursos con las personas anotadas en cada uno
-  Route::get('/cursos/ultimos/{cant}', 'ultimosCursos'); // Devuelve una coleccion de los ultimos {cant} de cursos
+  Route::post('/curso/{idCurso}/anotar/{idPersona}', 'anotarPersona'); // Registra una persona en un curso específico.
+  Route::get('/cursos/personas', 'personasAnotadas'); // Retorna una colección de cursos con las personas inscritas en cada uno.
+  Route::get('/cursos/ultimos/{cant}', 'ultimosCursos'); // Retorna una colección de los últimos {cant} cursos agregados.
 });
 
 Route::controller(CategoriaController::class)->group(function () {
