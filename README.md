@@ -66,6 +66,8 @@ php artisan key:generate
 
 ```sh
 php artisan migrate
+si se desean datos de prueba (cursos, personas y categorias)
+php artisan migrate:refresh --seed
 ```
 6. Iniciar el servidor de la api:
 
