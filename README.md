@@ -1,9 +1,11 @@
 # Evaluación técnica
 Evaluación Técnica Guido Di Fiore
 
-## API ENDPOINTS
-
 - [Evaluación técnica](#evaluación-técnica)
+  - [Requisitos previos](#requisitos-previos)
+  - [Instalación](#instalación)
+    - [API (Laravel)](#api-laravel)
+    - [Frontend (React)](#frontend-react)
   - [API ENDPOINTS](#api-endpoints)
     - [Personas](#personas)
       - [Listar Personas](#listar-personas)
@@ -26,6 +28,66 @@ Evaluación Técnica Guido Di Fiore
       - [Mostrar Categoría](#mostrar-categoría)
       - [Actualizar Categoría](#actualizar-categoría)
       - [Eliminar Categoría](#eliminar-categoría)
+
+Este repositorio contiene la implementación de una aplicación web que consta de dos partes: una API construida con Laravel y un frontend desarrollado en React.
+
+## Requisitos previos
+Asegúrate de tener instalados los siguientes componentes antes de comenzar:
+
+- PHP >= 8.1
+- Composer
+- Node.js
+- npm
+
+## Instalación
+
+Sigue estos pasos para instalar y configurar tanto la API como el frontend:
+
+### API (Laravel)
+
+1. Navega a la carpeta `api`:
+   ```sh
+   cd api
+   ```
+2. Copiar el archivo de configuración .env.example y renómbralo a .env. Luego, configura las variables de entorno, como la conexión a la base de datos.
+
+3. Instala las dependencias de Composer:
+
+```sh
+composer install
+```
+4. Genera la clave de la aplicación:
+
+```sh
+php artisan key:generate
+```
+5. Ejecuta las migraciones para crear las tablas de la base de datos:
+
+```sh
+php artisan migrate
+```
+6. Inicia el servidor de la api:
+
+```sh
+php artisan serve
+```
+### Frontend (React)
+1. Navega a la carpeta frontend:
+```sh
+cd frontend
+```
+
+2. Instala las dependencias de Node.js:
+```sh
+npm install
+```
+3. Inicia la aplicación de React:
+
+```sh
+npm start
+```
+
+## API ENDPOINTS
 
 ### Personas
 
