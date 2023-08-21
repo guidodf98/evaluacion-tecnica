@@ -13,7 +13,7 @@ class Curso extends Model
 
     public function categoria()
     {
-        return $this->belongsTo(Categoria::class);
+        return $this->belongsTo(Categoria::class)->withTrashed(); // Se agrega withTrashed para que no se pierda la información si se elimina una categoría.
     }
 
     public function personas()
