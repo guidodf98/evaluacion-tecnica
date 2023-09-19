@@ -28,26 +28,20 @@ const AnotarPersonas = ({ cursoId }) => {
       });
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
-    personasSeleccionadas.map((persona) => {
-      store(persona.value)
-    })
-
-    document.getElementById('boton-cierre-anotar').click()
-    resetAll()
-  }
-
-  const store = async (idPersona) => {
     try {
-      const response = await axios.post(`${endpoint}/curso/${cursoId}/anotar/${idPersona}`, {
+      const response = await axios.post(`${endpoint}/curso/${cursoId}/anotar`, {
         curso_id: cursoId,
-        persona_id: idPersona
+        personas: personasSeleccionadas
       })
 
       if (response.status === 200) {
-        console.log(`Persona ${idPersona} registrada con éxito`);
+        console.log(`Personas registradas con éxito`);
+
+        document.getElementById('boton-cierre-anotar').click()
+        resetAll()
       }
     } catch (error) {
       if (error.response) {

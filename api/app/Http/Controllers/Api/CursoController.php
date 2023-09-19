@@ -106,15 +106,18 @@ class CursoController extends Controller
    * @param int $idPersona ID de la persona que se inscribirá en el curso.
    * @return \Illuminate\Http\JsonResponse
    */
-  public function anotarPersona(int $idCurso, int $idPersona)
+  public function anotarPersona(int $idCurso, Request $request)
   {
+    $data = $request->json()->all();
+
     // Obtener la categoría del curso actual
     $curso = Curso::findOrFail($idCurso);
     $categoriaCurso = $curso->categoria->id;
 
+    foreach ($data["personas"] as $persona) {
     // Verificar si la persona ya tiene la combinación de curso_id y persona_id
     $yaInscrito = CursoPersona::where('curso_id', $idCurso)
-      ->where('persona_id', $idPersona)
+      ->where('persona_id', $persona["value"])
       ->exists();
 
     if ($yaInscrito) {
@@ -122,7 +125,7 @@ class CursoController extends Controller
     }
 
     // Contar cuántos cursos con la misma categoría tiene la persona
-    $cursosMismaCategoria = CursoPersona::where('persona_id', $idPersona)
+    $cursosMismaCategoria = CursoPersona::where('persona_id', $persona["value"])
       ->join('cursos', 'curso_persona.curso_id', '=', 'cursos.id')
       ->where('categoria_id', $categoriaCurso)
       ->count();
@@ -136,9 +139,10 @@ class CursoController extends Controller
     $cursoPersona = new CursoPersona();
 
     $cursoPersona->curso_id = $idCurso;
-    $cursoPersona->persona_id = $idPersona;
+    $cursoPersona->persona_id = $persona["value"];
 
     $cursoPersona->save();
+  }
 
     return response()->json(['message' => 'Persona inscrita en el curso correctamente'], 200);
   }
